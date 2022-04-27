@@ -124,7 +124,15 @@ function setPageInfo() {
 
         var img = document.createElement("img");
         img.className = "mr-2";
-        img.src = "/static/imgs/SDGS/E_WEB_" + index.toString() + ".png";
+
+	let path = "";
+	if (index < 10) {
+	  path = "/static/imgs/SDGS/E_WEB_0";
+	} else {
+          path = "/static/imgs/SDGS/E_WEB_";
+	}
+
+        img.src = path + index.toString() + ".png";
         img.setAttribute("width", "30px");
         img.setAttribute("height", "30px");
 
