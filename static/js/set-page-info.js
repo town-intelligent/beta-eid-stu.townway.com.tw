@@ -118,11 +118,8 @@ function setPageInfo() {
       // Set task sdgs icon
       var obj_task_sdgs = document.getElementById("task_sdgs");
 
-      console.log("hello content = ");
-      console.log("hello content = " + obj_target.content);
       for(let index = 1; index <= 17; index++) {
         // Check SDGs
-	console.log("hello index " + "sdgs" + index.toString() + " == " + obj_target.content["sdgs-" + index.toString()] );
 	if (obj_target.content["sdgs-" + index.toString()] == "0") {
 	  continue;
 	}
