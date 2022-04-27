@@ -94,8 +94,6 @@ function setPageInfo() {
         }
       });
   } else if (page == "activity_participation.html") {
-      console.log("hello success in set page info");
-
       // Get task
       var queryString = window.location.search;
       var urlParams = new URLSearchParams(queryString);
@@ -116,5 +114,19 @@ function setPageInfo() {
       document.getElementById("task_name").value = obj_target.name;
       document.getElementById("task_start_time").value = task_period[0];
       document.getElementById("task_end_time").value = task_period[1];
+
+      // Set task sdgs icon
+      var obj_task_sdgs = document.getElementById("task_sdgs");
+
+      var d-block = document.createElement("a");
+      d-block.className = "d-block";
+
+      var img = document.createElement("img");
+      img.className = "mr-2";
+      img.src = /static/imgs/SDGS/E_WEB_17.png;
+      img.setAttribute("width", "30px");
+      img.setAttribute("height", "30px");
+
+      d-block.appendChild(img);
   }
 }
