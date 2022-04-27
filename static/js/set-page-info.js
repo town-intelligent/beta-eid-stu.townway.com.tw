@@ -118,16 +118,18 @@ function setPageInfo() {
       // Set task sdgs icon
       var obj_task_sdgs = document.getElementById("task_sdgs");
 
-      var a = document.createElement("a");
-      a.className = "d-block";
+      for(let index = 1; index <= 3; index++) {
+        var a = document.createElement("a");
+        a.className = "d-block";
 
-      var img = document.createElement("img");
-      img.className = "mr-2";
-      img.src = "/static/imgs/SDGS/E_WEB_17.png";
-      img.setAttribute("width", "30px");
-      img.setAttribute("height", "30px");
+        var img = document.createElement("img");
+        img.className = "mr-2";
+        img.src = "/static/imgs/SDGS/E_WEB_" + index + ".png";
+        img.setAttribute("width", "30px");
+        img.setAttribute("height", "30px");
 
-      obj_task_sdgs.appendChild(a);
-      a.appendChild(img);
+        obj_task_sdgs.appendChild(a);
+        a.appendChild(img);
+      }
   }
 }
