@@ -48,12 +48,14 @@
 
       // --- --- ---
 
-      function uploadImg(base64Img) {
+      function submitTaskComment() {
         var dataJSON = {};
+	dataJSON.uuid = getCookie("target");
         dataJSON.email = getCookie("email");
-        dataJSON.img = base64Img;
+        // dataJSON.comment = "123";
+	// dataJSON.img = base64Img;
         $.ajax({
-          url: HOST_URL_EID_DAEMON + "/ac",
+          url: HOST_URL_TPLANET_DAEMON + "/tasks/comment",
           type: "POST",
           async: false,
           crossDomain: true,
@@ -108,10 +110,14 @@
       setCookie(uuid, str_obj_uuid);
       console.log(str_obj_uuid);
 
+      // Submit task
       submitTaskTickets(uuid);
 
+      // Upload comment and pictures
+      submitTaskComment();
+
       // Redirect
-      window.location.href = "/foot_print";
+      // window.location.href = "/foot_print";
     }
 
   </script>
