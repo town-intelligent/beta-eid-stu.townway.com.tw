@@ -118,7 +118,7 @@ function setPageInfo() {
       // Set task sdgs icon
       var obj_task_sdgs = document.getElementById("task_sdgs");
 
-
+      console.log("hello content = ");
       console.log("hello content = " + obj_target.content);
       for(let index = 1; index <= 17; index++) {
         // Check SDGs
