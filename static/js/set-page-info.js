@@ -127,7 +127,7 @@ function setPageInfo() {
       img.setAttribute("width", "30px");
       img.setAttribute("height", "30px");
 
-      a.appendChild(img);
       obj_task_sdgs.appendChild(a);
+      a.appendChild(img);
   }
 }
