@@ -128,5 +128,6 @@ function setPageInfo() {
       img.setAttribute("height", "30px");
 
       a.appendChild(img);
+      obj_task_sdgs.append(a);
   }
 }
