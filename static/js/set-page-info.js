@@ -118,15 +118,15 @@ function setPageInfo() {
       // Set task sdgs icon
       var obj_task_sdgs = document.getElementById("task_sdgs");
 
-      var d-block = document.createElement("a");
-      d-block.className = "d-block";
+      var a = document.createElement("a");
+      a.className = "d-block";
 
       var img = document.createElement("img");
       img.className = "mr-2";
-      img.src = /static/imgs/SDGS/E_WEB_17.png;
+      img.src = "/static/imgs/SDGS/E_WEB_17.png";
       img.setAttribute("width", "30px");
       img.setAttribute("height", "30px");
 
-      d-block.appendChild(img);
+      a.appendChild(img);
   }
 }
