@@ -3,5 +3,11 @@ function setLocalStorage(key, value) {
 }
 
 function getLocalStorage(key) {
-  return localStorage.getItem(key);
+  var result = localStorage.getItem(key);
+
+  if (result === null) {
+    return "";
+  } else {
+    return result;
+  }
 }
