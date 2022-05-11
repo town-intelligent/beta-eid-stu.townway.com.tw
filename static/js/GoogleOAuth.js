@@ -1,6 +1,6 @@
 function eIDLogin(id_token, res) {
-	setLocalStorage("jwt", id_token);
-	setLocalStorage("email", res.result.emailAddresses[0].value);
+  setLocalStorage("jwt", id_token);
+  setLocalStorage("email", res.result.emailAddresses[0].value);
 
   // Oauth to eID
   var dataJSON = {};

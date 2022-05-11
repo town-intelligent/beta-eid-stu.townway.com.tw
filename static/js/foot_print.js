@@ -11,7 +11,7 @@ function getProjectWeight(list_task_UUIDs) {
     data: dataJSON,
     success: function(returnData) {
        const obj = JSON.parse(returnData);
-       // Set project weight to cookie
+       // Set project weight to LocalStorage
        setLocalStorage("project_weight", returnData);
        projectWeight = obj;
     },
@@ -46,7 +46,7 @@ function submitTaskTickets(task_UUID) {
     data: dataJSON,
     success: function(returnData) {
        const obj = JSON.parse(returnData);
-       // Set project weight to cookie
+       // Set project weight to LocalStorage
        setLocalStorage("project_weight", returnData);
        taskWeight = obj;
     },
