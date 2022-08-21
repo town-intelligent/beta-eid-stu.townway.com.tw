@@ -33,7 +33,12 @@ function submitTaskComment(task_UUID) {
   dataJSON.uuid = uuid;
   dataJSON.email = getLocalStorage("email");
   dataJSON.comment = document.getElementById("Idcomment").value;
-  dataJSON.img = getLocalStorage("commentImg");
+
+  var img = document.getElementById("id_upload_foot_print_img").style.backgroundImage;
+  img = img.replace('url("', '');
+  img = img.replace('")', '');
+
+  dataJSON.img = img;//getLocalStorage("commentImg");
 
   $.ajax({
     url: HOST_URL_TPLANET_DAEMON + "/projects/comment",
@@ -50,6 +55,7 @@ function submitTaskComment(task_UUID) {
   });
 
   return;
+
 }
 
 function submitTaskTickets(task_UUID) {
@@ -124,12 +130,12 @@ function updateNodeData(baseNodes, baseLinks) {
         obj_personal.id = "personal-" + index.toString() + index_sdgs.toString();
         obj_personal.group = 18;
         obj_personal.label = "個人";
-	baseNodes.push(obj_personal);
+	      baseNodes.push(obj_personal);
 
         var obj_new_node = {}
-	obj_new_node.nodeid = obj_personal.id;
-	obj_new_node.source = index_sdgs;
-	new_personal_node.push(obj_new_node);
+	      obj_new_node.nodeid = obj_personal.id;
+	      obj_new_node.source = index_sdgs;
+	      new_personal_node.push(obj_new_node);
       }
     }
   }

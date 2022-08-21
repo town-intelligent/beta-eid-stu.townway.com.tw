@@ -227,3 +227,46 @@ function list_tasks(username) {
   });
   return list_issues;
 }
+
+function get_task_description(uuid) {
+  var dataJSON = {};
+
+  $.ajax({
+    url: HOST_URL_TPLANET_DAEMON + "/tasks/get/" + uuid,
+    type: "GET",
+    async: false,
+    crossDomain: true,
+    data:  dataJSON,
+    success: function(returnData) {
+       const obj = JSON.parse(returnData);
+       dataJSON = obj;
+    },
+    error: function(xhr, ajaxOptions, thrownError){
+      console.log(thrownError);
+    }
+  });
+
+  return dataJSON;
+}
+
+function get_child_tasks(uuid) {
+  var dataJSON = {};
+  dataJSON.uuid = uuid;
+
+  $.ajax({
+    url: HOST_URL_TPLANET_DAEMON + "/tasks/get_child_tasks",
+    type: "POST",
+    async: false,
+    crossDomain: true,
+    data:  dataJSON,
+    success: function(returnData) {
+       const obj = JSON.parse(returnData);
+       dataJSON = obj;
+    },
+    error: function(xhr, ajaxOptions, thrownError){
+      console.log(thrownError);
+    }
+  });
+
+  return dataJSON.task;
+}

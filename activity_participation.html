@@ -75,19 +75,22 @@
 
       // --- --- ---
       function previewImg(base64Img) {
-	  document.getElementById("id_upload_foot_print_img").style.backgroundImage = 'url(\'' + base64Img + '\')';
-	  document.getElementById("id_upload_foot_print_img").style.width = "400px"; 
-	  document.getElementById("id_upload_foot_print_img").style.height = "400px"; 
+	      document.getElementById("id_upload_foot_print_img").style.backgroundImage = 'url(\'' + base64Img + '\')';
+	      document.getElementById("id_upload_foot_print_img").style.width = "400px"; 
+	      document.getElementById("id_upload_foot_print_img").style.height = "400px"; 
       } 
 
       // --- --- ---
 
       function upload_foot_print_img() {
-	var file = new FileModal("image/*");
+	      var file = new FileModal("image/*");
         file.onload = function(d){
         // Upload base64 image file
         // uploadImg(d);
-	   previewImg(d);
+        console.log(d);
+        
+        previewImg(d);
+        
         };
         file.show();
       }
@@ -108,9 +111,9 @@
       setLocalStorage(uuid, str_obj_uuid);
       console.log(str_obj_uuid);
 
-      submitTaskTickets(uuid);
+      // submitTaskTickets(uuid);
 
-      // Redirect
+      // FIXME: Redirect
       window.location.href = "/foot_print";
     }
 
