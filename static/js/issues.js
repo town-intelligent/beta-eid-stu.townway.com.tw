@@ -116,7 +116,7 @@ function set_task_in_page(obj) {
 
   var a = document.createElement("a"); 
   a.src = obj.thumbnail;
-  a.href = "/tasks/activity_convey_ideas.html";
+  a.href = "/tasks/activity_convey_ideas.html?task=" + obj.uuid;
 
   var card_p_4 = document.createElement("div");
   card_p_4.className = "card p-4";
