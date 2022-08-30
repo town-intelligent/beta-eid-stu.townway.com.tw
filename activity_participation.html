@@ -85,12 +85,10 @@
       function upload_foot_print_img() {
 	      var file = new FileModal("image/*");
         file.onload = function(d){
-        // Upload base64 image file
-        // uploadImg(d);
-        console.log(d);
-        
-        previewImg(d);
-        
+          // Upload base64 image file
+          // uploadImg(d);
+          console.log(d);
+          previewImg(d);
         };
         file.show();
       }
