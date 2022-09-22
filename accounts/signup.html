@@ -34,7 +34,7 @@
         dataJSON.password =  $("#password").val();
         dataJSON.email =  $("#email").val();
         $.ajax({
-          url: "https://beta-eid-backend.townway.com.tw/accounts/signup",
+          url: "https://eid-backend.townway.com.tw/accounts/signup",
           type: "POST",
     	  crossDomain: true,
           data:  dataJSON,
@@ -58,7 +58,7 @@
       <div class="row">
         <div class="col">
           <nav class="navbar navbar-light bg-white py-0">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/index.html">
               <img class="mr-1 logo-isu" src="../static/imgs/eID-logo.png">
 	    </a>
           </nav>

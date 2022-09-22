@@ -7,10 +7,8 @@ function setInfoEid() {
   pathAvatarImg = getLocalStorage("avatar_img");
 
   // Clear cache
-  console.log(pathAvatarImg);
   var obj_img_avatar = document.getElementById("img_avatar");
   obj_img_avatar.style.backgroundImage = "url(" + HOST_URL_EID_DAEMON + pathAvatarImg  +  ")";
-  console.log(obj_img_avatar.style.backgroundImage);
 }
 
 function setPageInfo() {
@@ -41,12 +39,9 @@ function setPageInfo() {
     // Update avatar
     getAvatarImg(getLocalStorage("email"))
     pathAvatarImg = getLocalStorage("avatar_img");
-    console.log(pathAvatarImg);
     var obj_img_avatar = document.getElementById("btn_avatar_img").firstChild;
     obj_img_avatar.style.backgroundImage = "url(" + HOST_URL_EID_DAEMON + pathAvatarImg  +  ")";
-    console.log(obj_img_avatar.style.backgroundImage);
   } else if (page == "signup.html" || page == "signin.html") {
-      console.log("in setpageinfo signup.html");
       var token = getLocalStorage("jwt");
 
       if (token == "") {
@@ -94,9 +89,6 @@ function setPageInfo() {
       for(var index=0; index<list_child_tasks.length; index++) {
         var obj_task = get_task_description(list_child_tasks[index]);
 
-        console.log("Got task UUID " + obj_task.uuid + 
-        " type " + obj_task.type_task);
-
         // Create DOM
         /*
         * <tr>
@@ -128,7 +120,32 @@ function setPageInfo() {
           obj_td_sdg.className = "align-middle";
 
           // TODO: SDGs
-          var obj_img_04 = document.createElement("img");
+          
+          var content = JSON.parse(obj_task.content);
+
+          var index_sdg = 0
+          for (var key in content) {
+            // index_sdg = ("0" + index).slice(-2);
+
+            index_sdg ++;
+            
+            if ( parseInt(content[key]) != 0){
+              var index_img = 0;
+              if (index_sdg < 10){
+                index_img = ("0" + index_sdg).slice(-2);
+              } else {
+                index_img = index_sdg;
+              }
+              var obj_img_04 = document.createElement("img");
+              obj_img_04.className = "mr-2";
+              obj_img_04.style = "height: 30px; padding-left: 2;";
+              obj_img_04.src = "/static/imgs/SDGS/E_WEB_" + index_img + ".png";
+
+              obj_td_sdg.append(obj_img_04);
+            } 
+          }
+
+          /* var obj_img_04 = document.createElement("img");
           obj_img_04.className = "mr-2";
           obj_img_04.style = "height: 30px; padding-left: 2;";
           obj_img_04.src = "/static/imgs/SDGS/E_WEB_04.png";
@@ -136,7 +153,7 @@ function setPageInfo() {
           var obj_img_08 = document.createElement("img");
           obj_img_08.className = "mr-2";
           obj_img_08.style = "height: 30px; padding-left: 2;";
-          obj_img_08.src = "/static/imgs/SDGS/E_WEB_08.png";
+          obj_img_08.src = "/static/imgs/SDGS/E_WEB_08.png"; */
 
           var obj_td_period = document.createElement("td");
           obj_td_period.className = "text-center align-middle";
@@ -153,12 +170,14 @@ function setPageInfo() {
 
           var obj_div_submit = document.createElement("div");
           obj_div_submit.className = "btn btn-primary btn-sm";
+
           obj_div_submit.setAttribute("onclick", "location.href='/tasks/activity_participation.html?uuid=" + obj_task.uuid + "'");
+          
           obj_div_submit.innerHTML = "參與任務";
 
           // Append
-          obj_td_sdg.append(obj_img_04);
-          obj_td_sdg.append(obj_img_08);
+          //obj_td_sdg.append(obj_img_04);
+          //obj_td_sdg.append(obj_img_08);
           obj_td_submit.append(obj_div_submit);
           
           obj_tr.append(obj_td_name);
@@ -175,7 +194,7 @@ function setPageInfo() {
       var uuid = urlParams.get("uuid");
       
       // Set Task
-      //setLocalStorage("target", uuid);
+      setLocalStorage("target", uuid);
 
       // Get task info
       var uuid_target_parent = null;
@@ -239,6 +258,14 @@ function setPageInfo() {
 
         obj_task_sdgs.appendChild(a);
         a.appendChild(img);
+
+        // form task display
+        if(obj_target.type_task == 0) {
+          document.getElementById("img_block").style.display = "none";
+          document.getElementById("btn_foot_print_img").style.display = "none";
+          document.getElementById("comment_block").style.display = "none";
+        }
+
       }
   }
 }
