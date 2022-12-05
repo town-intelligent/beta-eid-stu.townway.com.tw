@@ -75,10 +75,10 @@
 
       // --- --- ---
       function previewImg(base64Img) {
-	    document.getElementById("id_upload_foot_print_img").style.backgroundImage = 'url(\'' + base64Img + '\')';
-	    document.getElementById("id_upload_foot_print_img").style.width = "300px"; 
-	    document.getElementById("id_upload_foot_print_img").style.height = "300px";
-	    setLocalStorage("commentImg", base64Img);
+        document.getElementById("id_upload_foot_print_img").style.backgroundImage = 'url(\'' + base64Img + '\')';
+        document.getElementById("id_upload_foot_print_img").style.width = "300px"; 
+        document.getElementById("id_upload_foot_print_img").style.height = "300px";
+        setLocalStorage("commentImg", base64Img);
       } 
 
       // --- --- ---
@@ -86,6 +86,7 @@
       function upload_foot_print_img() {
 	      var file = new FileModal("image/*");
         file.onload = function(d){
+        alert(file.src);
         // Upload base64 image file
         // uploadImg(d);
         if (d.length > 3000000) {
