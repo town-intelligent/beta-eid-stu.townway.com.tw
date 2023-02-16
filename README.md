@@ -1,4 +1,4 @@
 # eid-web
 
 ## Stable release
-- https://eid.townway.com.tw
+- https://beta-eid-stu.townway.com.tw
