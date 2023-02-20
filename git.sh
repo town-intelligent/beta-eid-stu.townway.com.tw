@@ -1,1 +1,1 @@
-git add . ; git commit --amend -m "feat: add overlay when task verified" ; git push -f
+git add . ; git commit -m "fix: set readonly field on activity_particpation page" ; git push

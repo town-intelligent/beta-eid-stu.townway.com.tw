@@ -1,1 +1,1 @@
-google-chrome-stable --incognito https://beta-eid.townway.com.tw/accounts/signin.html
+google-chrome-stable --incognito https://beta-eid-stu.townway.com.tw
