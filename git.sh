@@ -1,1 +1,1 @@
-git add . ; git commit --amend -m "fix: set readonly field on activity_particpation page" ; git push -f
+git add . ; git commit --amend -m "refactor: code refactor" ; git push -f
